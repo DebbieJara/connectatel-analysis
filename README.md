@@ -58,12 +58,10 @@ Análisis exploratorio de datos para ConnectaTel, empresa de telecomunicaciones 
 ## ▶️ Cómo ejecutar
 
 ### Google Colab
-1. Ve a [Google Colab](https://colab.research.google.com)
-2. Haz clic en **File → Open notebook → GitHub**
-3. Pega la URL del repositorio: `https://github.com/DebbieJara/connectatel-analysis`
-4. Selecciona el notebook
-5. Sube los archivos CSV desde el panel izquierdo (ícono de carpeta → subir archivo)
-6. Ejecuta las celdas en orden
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DebbieJara/connectatel-analysis/blob/main/Project-ConnectaTel.ipynb)
+
+1. Haz clic en el badge de arriba
+2. Ejecuta las celdas en orden — los datasets ya están en el repositorio
 
 ### Jupyter local
 ```bash
@@ -72,7 +70,7 @@ pip install pandas numpy matplotlib seaborn
 jupyter notebook
 ```
 
-> Los datasets deben estar en la misma carpeta que el notebook. Se recomienda ejecutar todas las celdas en orden desde el inicio.
+> Se recomienda ejecutar todas las celdas en orden desde el inicio.
 
 ---
 
