@@ -66,7 +66,7 @@ Análisis exploratorio de datos para ConnectaTel, empresa de telecomunicaciones 
 ## ▶️ Cómo ejecutar
 
 ### Google Colab
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DebbieJara/connectatel-analysis/blob/main/Project-ConnectaTel.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DebbieJara/connectatel-analysis/blob/main/Project_ConnectaTel.ipynb)
 
 1. Haz clic en el badge de arriba
 2. Ejecuta las celdas en orden — los datasets ya están en el repositorio
