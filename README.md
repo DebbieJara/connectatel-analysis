@@ -25,6 +25,14 @@ Análisis exploratorio de datos para ConnectaTel, empresa de telecomunicaciones 
 
 ---
 
+## 📈 Visualizaciones
+
+![Distribución de mensajes por plan](images/histograma_cant_mensajes.png)
+![Distribución de minutos por plan](images/histograma_cant_minutos_llamada.png)
+![Boxplots outliers](images/boxplots.png)
+
+---
+
 ## 💡 Recomendaciones
 - Campaña de upgrade para usuarios Básico con alto volumen de uso, ofreciendo descuento en el primer mes de Premium.
 - Promociones de fidelización para Adultos Mayores en plan Premium.
