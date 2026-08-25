@@ -1,86 +1,83 @@
-# 📊 ConnectaTel — Análisis Exploratorio de Datos
+# ConnectaTel: Exploratory Data Analysis
 
-## 📌 Descripción
-Análisis exploratorio de datos para ConnectaTel, empresa de telecomunicaciones latinoamericana. El proyecto identifica patrones de uso, detecta comportamientos atípicos y segmenta clientes para optimizar la oferta comercial y mejorar la experiencia del usuario.
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DebbieJara/connectatel-customer-segmentation-analysis/blob/main/Project_ConnectaTel.ipynb)
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![pandas](https://img.shields.io/badge/pandas-150458?style=flat&logo=pandas&logoColor=white)
 
-**Herramientas:** Python · Pandas · NumPy · Seaborn · Matplotlib
+**Business question:** Exploratory data analysis for ConnectaTel, a Latin American telecommunications company. The project identifies usage patterns, detects anomalous behavior, and segments customers to optimize the commercial offering and improve user experience.
 
----
+## Context
 
-## 🔍 Hallazgos Principales
+The analysis covers three datasets: available plans (prices, minutes, GB included), customer demographic and plan data, and actual usage records (calls and messages), based on data recorded through 2024.
 
-### Calidad de datos
-- Se detectaron y corrigieron sentinels en `age` (-999) y `city` ('?'), además de 40 fechas imposibles en `reg_date` (año 2026).
-- Los nulos en `duration` y `length` se confirmaron como MNAR — dependen del tipo de evento (llamada o mensaje) y se mantuvieron.
+## Process
 
-### Segmentación de clientes
-- **Por edad:** 50.44% Adultos, 30.56% Adultos Mayores, 19% Jóvenes.
-- **Por nivel de uso:** 73.59% Uso medio, 19.45% Bajo uso, 6.95% Alto uso.
-- Los Adultos Mayores (70-80 años) muestran mayor proporción de plan Premium, sugiriendo mayor capacidad económica.
+Initial exploration of structure and data types, data quality assessment (nulls, sentinels, and impossible dates), cleaning (sentinel correction, imputation, and invalid date flagging), aggregation of behavior metrics per user, visualization by plan type, outlier detection using boxplots and IQR limits, customer segmentation by age and usage level, and an executive summary with recommendations.
 
-### Patrones de uso
-- Los usuarios Premium envían más mensajes y realizan más llamadas que los Básico.
-- La duración de llamadas es similar entre ambos planes — el plan influye en frecuencia, no en duración.
-- Se detectaron outliers del lado derecho en `cant_mensajes`, `cant_llamadas` y `cant_minutos_llamada`, representando usuarios de alto valor.
+## Key findings
 
----
+### Data quality
 
-## 📈 Visualizaciones
+Sentinels were detected and corrected in `age` (-999, 55 records) and `city` ('?', 96 records), plus 469 null values in `city` (565 total missing, 14.12%). 40 impossible dates (year 2026) were found in `reg_date` and marked as null.
 
-![Distribución de mensajes por plan](images/histograma_cant_mensajes.png)
-![Distribución de minutos por plan](images/histograma_cant_minutos_llamada.png)
-![Boxplots outliers](images/boxplots.png)
+Nulls in `duration` and `length` were confirmed as MNAR (Missing Not At Random): they depend on the event type (call or text) and were kept as-is rather than imputed.
 
----
+### Customer segmentation
 
-## 💡 Recomendaciones
-- Campaña de upgrade para usuarios Básico con alto volumen de uso, ofreciendo descuento en el primer mes de Premium.
-- Promociones de fidelización para Adultos Mayores en plan Premium.
-- Ofertas de datos adicionales para jóvenes en plan Básico para engancharlos a largo plazo.
-- Programa de lealtad para usuarios outliers de alto consumo.
-- Campañas de reactivación para usuarios de Bajo uso.
+- By age: 50.44% Adults, 30.56% Older Adults, 19% Young.
+- By usage level: 73.59% Medium usage, 19.45% Low usage, 6.95% High usage.
+- Older Adults (70-80 years) show a higher proportion of Premium plan subscribers, suggesting greater purchasing power.
 
----
+### Usage patterns
 
-## 📂 Datasets
-| Archivo | Descripción |
+Premium users send more messages and make more calls than Basic users. Call duration is similar between both plans: the plan influences frequency of use, not duration per call. Right-side outliers were detected in message count, call count, and call minutes, representing high-value users.
+
+## Visualizations
+
+![Message count distribution by plan](images/histograma_cant_mensajes.png)
+
+![Call minutes distribution by plan](images/histograma_cant_minutos_llamada.png)
+
+![Outlier boxplots](images/boxplots.png)
+
+## Recommendations
+
+- Upgrade campaign for Basic users with high usage volume, offering a discount on their first Premium month.
+- Loyalty promotions for Older Adults on the Premium plan.
+- Additional data offers for young users on the Basic plan, to build long-term engagement.
+- Loyalty program for high-usage outlier users.
+- Reactivation campaigns for Low usage users.
+
+## Technical details
+
+### Dataset
+
+| File | Description |
 |---|---|
-| `users_latam.csv` | Información demográfica y de plan de 4,000 usuarios |
-| `usage.csv` | 40,000 registros de uso (llamadas y mensajes) |
-| `plans.csv` | Descripción de los planes Básico y Premium |
+| users_latam.csv | Demographic and plan information for 4,000 users |
+| usage.csv | 40,000 usage records (calls and messages) |
+| plans.csv | Description of the Basic and Premium plans |
 
----
+## Tools
 
-## 🔍 Etapas del Análisis
-1. **Exploración inicial** — estructura, tipos de datos y primeras observaciones
-2. **Calidad de datos** — detección de nulos, sentinels y fechas imposibles
-3. **Limpieza** — corrección de sentinels, imputación y marcado de fechas inválidas
-4. **Agregación** — construcción de métricas de comportamiento por usuario
-5. **Visualización** — histogramas y análisis por tipo de plan
-6. **Outliers** — boxplots y cálculo de límites IQR
-7. **Segmentación** — clasificación por edad y nivel de uso
-8. **Insight ejecutivo** — conclusiones y recomendaciones para stakeholders
+Python · pandas · NumPy · Seaborn · Matplotlib
 
----
+## Repository structure
 
-## ▶️ Cómo ejecutar
-
-### Google Colab
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/DebbieJara/connectatel-analysis/blob/main/Project_ConnectaTel.ipynb)
-
-1. Haz clic en el badge de arriba
-2. Ejecuta las celdas en orden — los datasets ya están en el repositorio
-
-### Jupyter local
-```bash
-git clone https://github.com/DebbieJara/connectatel-analysis.git
-pip install pandas numpy matplotlib seaborn
-jupyter notebook
+```text
+connectatel-customer-segmentation-analysis/
+├── README.md
+├── Project_ConnectaTel.ipynb
+├── plans.csv
+├── usage.csv
+├── users_latam.csv
+└── images/
+    ├── boxplots.png
+    ├── histograma_cant_mensajes.png
+    └── histograma_cant_minutos_llamada.png
 ```
 
-> Se recomienda ejecutar todas las celdas en orden desde el inicio.
-
 ---
 
-## 👩‍💻 Autora
-**Debbie Jara** · [GitHub](https://github.com/DebbieJara) · Data Analyst en formación
+By Deborah Jara | Business Intelligence · Data Analytics | Mexico
+[LinkedIn](https://www.linkedin.com/in/deborahjara) · [GitHub](https://github.com/DebbieJara)
